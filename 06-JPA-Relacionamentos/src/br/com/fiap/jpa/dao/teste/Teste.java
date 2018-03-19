@@ -7,6 +7,7 @@ import br.com.fiap.jpa.dao.NotaDAO;
 import br.com.fiap.jpa.dao.PedidoDAO;
 import br.com.fiap.jpa.dao.impl.NotaDAOImpl;
 import br.com.fiap.jpa.dao.impl.PedidoDAOImpl;
+import br.com.fiap.jpa.entity.ItemPedido;
 import br.com.fiap.jpa.entity.NotaFiscal;
 import br.com.fiap.jpa.entity.Pedido;
 import br.com.fiap.jpa.entity.StatusPedido;
@@ -25,6 +26,14 @@ public class Teste {
 		
 		Pedido pedido = new Pedido("Churros", StatusPedido.APROVADO);
 		NotaFiscal nota = new NotaFiscal(pedido, 5.50, "FIAP");
+		
+		ItemPedido item1 = new ItemPedido();
+		item1.setQuantidade(12);
+		item1.setValor(5);
+
+		ItemPedido item2 = new ItemPedido();
+		item2.setQuantidade(5);
+		item2.setValor(2);
 
 		try {
 			pedidoDao.create(pedido);
