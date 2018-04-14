@@ -19,4 +19,9 @@ public class PacoteDAOImpl extends GenericDAOImpl<Pacote,Integer> implements Pac
 		return em.createQuery("from Pacote p where p.transporte = :tr",Pacote.class).setParameter("tr", transporte).getResultList();
 	}
 
+	@Override
+	public double calcularMediaPreco() {
+		return em.createQuery("select avf(p.preco) from Pacote p",Double.class).getSingleResult();
+	}
+
 }

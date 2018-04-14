@@ -9,5 +9,6 @@ public interface PacoteDAO extends GenericDAO<Pacote,Integer>{
 
 	List<Pacote> buscarPorTransporte(Transporte transporte);
 	
+	double calcularMediaPreco();
 	
 }

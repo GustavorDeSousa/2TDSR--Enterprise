@@ -30,4 +30,15 @@ public class ClienteDAOImpl extends GenericDAOImpl<Cliente,Integer> implements C
 	public List<Cliente> buscarPorDiasReserva(int dias) {
 		return em.createQuery("from Reserva r where r.numeroDias = :n",Cliente.class).setParameter("n", dias).getResultList();
 	}
+
+	@Override
+	public List<Cliente> buscar(String nome, String cidade) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long contarQuantidade() {
+		return em.createQuery("select count(c) from Cliente c",Long.class).getSingleResult();
+	}
 }
