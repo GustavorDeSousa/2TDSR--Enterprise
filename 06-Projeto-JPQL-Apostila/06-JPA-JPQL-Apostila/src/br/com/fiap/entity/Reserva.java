@@ -9,11 +9,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@NamedQuery(name="Reserva.porCidade",
+		query="select r from Reserva r where r.cliente.endereco.cidade.nome = :churros")
 @Entity
 @Table(name="JPA_T_RESERVA")
 @SequenceGenerator(name="seqReserva", sequenceName="SEQ_JPA_T_RESERVA", allocationSize=1)
